@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>팀 발표 주제 제안 — 우주에서 펭귄 세기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b1620;
+    --ink-soft:#3a4a58;
+    --ice:#f4f7f9;
+    --ice-2:#e7eef2;
+    --paper:#fbfcfd;
+    --line:#cdd9e1;
+    --polar:#1c5d7c;
+    --polar-deep:#0e3a52;
+    --glacier:#5a93ad;
+    --guano:#a8642e;
+    --guano-soft:#c98a4f;
+    --gold:#caa64a;
+    --shadow:rgba(14,58,82,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'IBM Plex Sans KR',sans-serif;
+    color:var(--ink);
+    background:var(--ice);
+    line-height:1.78;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--polar);color:#fff;}
+
+  /* ---------- layout ---------- */
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  section{padding:74px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      linear-gradient(180deg,rgba(11,22,32,.74) 0%,rgba(14,58,82,.82) 100%),
+      repeating-linear-gradient(115deg,#16455f 0 2px,transparent 2px 46px),
+      linear-gradient(160deg,#1c5d7c 0%,#0b1620 100%);
+    color:#fff;
+    padding:0;
+    border-bottom:none;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;left:0;right:0;bottom:0;height:5px;
+    background:linear-gradient(90deg,var(--polar) 0%,var(--glacier) 50%,var(--guano) 100%);
+  }
+  .hero-inner{max-width:920px;margin:0 auto;padding:78px 28px 70px;position:relative;}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--glacier);font-weight:500;
+    display:flex;align-items:center;gap:14px;
+  }
+  .kicker::before{content:"";width:34px;height:1px;background:var(--glacier);display:inline-block;}
+  .hero h1{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:clamp(34px,5.6vw,58px);
+    line-height:1.22;
+    margin:26px 0 20px;
+    letter-spacing:-.01em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--guano-soft);
+    border-bottom:3px solid var(--guano);
+    padding-bottom:2px;
+  }
+  .hero .lead{
+    font-size:17.5px;font-weight:300;
+    color:#d9e4ea;max-width:620px;
+  }
+  .hero-meta{
+    margin-top:38px;display:flex;flex-wrap:wrap;gap:10px 26px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;color:#9fbcc9;
+  }
+  .hero-meta span{display:flex;align-items:center;gap:8px;}
+  .hero-meta span::before{content:"";width:6px;height:6px;background:var(--guano);border-radius:50%;}
+
+  /* ---------- section heading ---------- */
+  .sec-no{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;color:var(--guano);font-weight:500;
+    letter-spacing:.16em;
+  }
+  h2{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:clamp(24px,3.5vw,33px);
+    line-height:1.35;
+    margin:10px 0 12px;
+    letter-spacing:-.01em;
+  }
+  .sec-intro{
+    color:var(--ink-soft);font-size:16px;max-width:680px;margin-bottom:34px;
+  }
+  h3{
+    font-family:'IBM Plex Sans KR',sans-serif;
+    font-weight:600;font-size:18.5px;
+    margin-bottom:8px;letter-spacing:-.01em;
+  }
+  p{font-weight:300;}
+  strong{font-weight:600;color:var(--polar-deep);}
+
+  /* ---------- pitch box ---------- */
+  .pitch{
+    background:var(--polar-deep);
+    color:#eaf2f5;
+    border-radius:4px;
+    padding:34px 36px;
+    margin-bottom:6px;
+    position:relative;
+  }
+  .pitch::before{
+    content:"제안";
+    position:absolute;top:-12px;left:32px;
+    background:var(--guano);color:#fff;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.14em;
+    padding:5px 13px;border-radius:3px;
+  }
+  .pitch p{font-size:16.5px;}
+  .pitch p+p{margin-top:14px;}
+  .pitch strong{color:var(--guano-soft);}
+
+  /* ---------- why grid ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  .why-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-top:3px solid var(--polar);
+    border-radius:3px;
+    padding:24px 24px 22px;
+  }
+  .why-card .ic{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--polar);font-weight:500;
+    letter-spacing:.1em;margin-bottom:10px;
+  }
+  .why-card p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* ---------- timeline ---------- */
+  .tl{position:relative;margin-top:14px;padding-left:34px;}
+  .tl::before{
+    content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;
+    background:linear-gradient(180deg,var(--glacier),var(--polar),var(--guano));
+  }
+  .tl-item{position:relative;padding-bottom:30px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-30px;top:5px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--paper);border:3px solid var(--polar);
+  }
+  .tl-item.guano::before{border-color:var(--guano);}
+  .tl-yr{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;font-weight:500;color:var(--guano);
+    letter-spacing:.06em;
+  }
+  .tl-item h3{font-size:17px;margin:3px 0 5px;}
+  .tl-item p{font-size:14.5px;color:var(--ink-soft);}
+  .tl-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;letter-spacing:.08em;
+    background:var(--ice-2);color:var(--polar-deep);
+    padding:2px 9px;border-radius:2px;margin-top:7px;
+  }
+
+  /* ---------- method steps ---------- */
+  .method{background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+  .method-row{
+    display:grid;grid-template-columns:64px 1fr;
+    border-bottom:1px solid var(--line);
+  }
+  .method-row:last-child{border-bottom:none;}
+  .method-num{
+    background:var(--ice-2);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:18px;font-weight:500;color:var(--polar);
+    border-right:1px solid var(--line);
+  }
+  .method-body{padding:18px 22px;}
+  .method-body h3{font-size:16px;}
+  .method-body p{font-size:14px;color:var(--ink-soft);}
+  .method-body .analogy{
+    font-size:13.5px;color:var(--guano);
+    border-left:2px solid var(--guano-soft);
+    padding-left:11px;margin-top:7px;font-weight:400;
+  }
+
+  /* ---------- AI highlight ---------- */
+  .ai-block{
+    background:
+      linear-gradient(155deg,#13455f 0%,#0b1620 100%);
+    color:#e6eef2;border-radius:4px;padding:34px 36px;
+    border-left:4px solid var(--guano);
+  }
+  .ai-block .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;letter-spacing:.16em;color:var(--guano-soft);
+    margin-bottom:14px;
+  }
+  .ai-block h3{color:#fff;font-size:19px;margin-bottom:10px;}
+  .ai-block p{font-size:15px;color:#cfdde4;}
+  .ai-list{margin-top:18px;display:flex;flex-direction:column;gap:13px;}
+  .ai-list .row{
+    display:grid;grid-template-columns:130px 1fr;gap:16px;
+    padding-top:13px;border-top:1px solid rgba(255,255,255,.13);
+  }
+  .ai-list .name{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;color:var(--guano-soft);font-weight:500;
+  }
+  .ai-list .desc{font-size:13.8px;color:#cfdde4;}
+
+  /* ---------- pro / con ---------- */
+  .pc{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .pc-col{border-radius:3px;padding:24px 24px 12px;border:1px solid var(--line);}
+  .pc-pro{background:#eef4f1;border-top:3px solid #3f7d5e;}
+  .pc-con{background:#f6efe8;border-top:3px solid var(--guano);}
+  .pc-col .hd{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.12em;font-weight:500;margin-bottom:14px;
+  }
+  .pc-pro .hd{color:#3f7d5e;}
+  .pc-con .hd{color:var(--guano);}
+  .pc-col ul{list-style:none;}
+  .pc-col li{
+    font-size:14px;color:var(--ink-soft);
+    padding:9px 0 9px 20px;position:relative;
+    border-bottom:1px dotted var(--line);
+  }
+  .pc-col li:last-child{border-bottom:none;}
+  .pc-col li::before{
+    position:absolute;left:0;top:9px;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+  }
+  .pc-pro li::before{content:"+";color:#3f7d5e;font-weight:700;}
+  .pc-con li::before{content:"–";color:var(--guano);font-weight:700;}
+  .pc-col li b{font-weight:600;color:var(--polar-deep);}
+
+  /* ---------- implication ---------- */
+  .imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .imp-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:3px;
+    padding:22px 20px;
+  }
+  .imp-card .n{
+    font-family:'IBM Plex Mono',monospace;font-size:22px;
+    color:var(--polar);font-weight:500;
+  }
+  .imp-card h3{font-size:15.5px;margin:8px 0 6px;}
+  .imp-card p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- rubric mapping ---------- */
+  .rubric{width:100%;border-collapse:collapse;font-size:14px;}
+  .rubric thead th{
+    background:var(--polar-deep);color:#fff;
+    font-weight:500;font-size:13px;
+    padding:12px 14px;text-align:left;
+    font-family:'IBM Plex Sans KR',sans-serif;
+  }
+  .rubric tbody td{
+    padding:13px 14px;border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  .rubric tbody tr:nth-child(even){background:var(--paper);}
+  .rubric .pt{
+    font-family:'IBM Plex Mono',monospace;font-weight:500;
+    color:var(--guano);white-space:nowrap;
+  }
+  .rubric .crit{font-weight:500;color:var(--polar-deep);}
+  .rubric .cover{color:var(--ink-soft);font-size:13.3px;}
+
+  /* ---------- roles ---------- */
+  .roles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .role{
+    background:var(--paper);border:1px solid var(--line);
+    border-left:3px solid var(--glacier);border-radius:2px;
+    padding:16px 18px;
+  }
+  .role .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.1em;color:var(--glacier);margin-bottom:5px;
+  }
+  .role p{font-size:13.7px;color:var(--ink-soft);}
+  .role b{font-weight:600;color:var(--polar-deep);}
+
+  /* ---------- structure list ---------- */
+  .struct{counter-reset:s;}
+  .struct .item{
+    display:grid;grid-template-columns:38px 1fr;gap:14px;
+    padding:14px 0;border-bottom:1px solid var(--line);
+  }
+  .struct .item:last-child{border-bottom:none;}
+  .struct .item::before{
+    counter-increment:s;content:counter(s,decimal-leading-zero);
+    font-family:'IBM Plex Mono',monospace;font-size:14px;
+    color:var(--guano);font-weight:500;padding-top:2px;
+  }
+  .struct .item h3{font-size:15.5px;}
+  .struct .item p{font-size:13.7px;color:var(--ink-soft);}
+  .struct .min{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+    color:var(--polar);float:right;
+  }
+
+  /* ---------- sources ---------- */
+  .src{font-size:13px;color:var(--ink-soft);line-height:1.95;}
+  .src li{
+    list-style:none;padding-left:18px;position:relative;
+    margin-bottom:5px;
+  }
+  .src li::before{
+    content:"▸";position:absolute;left:0;color:var(--guano);
+  }
+  .src .mono{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--polar);}
+
+  /* ---------- footer note ---------- */
+  .closing{
+    background:var(--polar-deep);color:#dce8ed;
+    text-align:center;padding:54px 28px;border-bottom:none;
+  }
+  .closing p{font-size:15.5px;max-width:560px;margin:0 auto;}
+  .closing .big{
+    font-family:'Gowun Batang',serif;font-weight:700;
+    font-size:23px;color:#fff;margin-bottom:14px;
+  }
+  .closing .sig{
+    margin-top:24px;font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--glacier);letter-spacing:.08em;
+  }
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:680px){
+    .why-grid,.pc,.imp-grid,.roles{grid-template-columns:1fr;}
+    .ai-list .row{grid-template-columns:1fr;gap:4px;}
+    .method-row{grid-template-columns:48px 1fr;}
+    .hero-inner{padding:56px 24px 50px;}
+    section{padding:54px 0;}
+    .pitch,.ai-block{padding:28px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">팀 프로젝트 사례조사 · 발표 주제 제안</div>
+    <h1>우주에서 <em>펭귄</em>을 세는 법<br>— 원격탐사 40년의 발전사</h1>
+    <p class="lead">
+      450km 상공의 위성으로 남극 펭귄의 수를 헤아린다. '지구를 보는 눈,
+      인공위성'이라는 강의 주제에 가장 잘 맞는 사례이자, 방법론의 진화를
+      한 편의 이야기로 풀어낼 수 있는 주제다.
+    </p>
+    <div class="hero-meta">
+      <span>강의 — 지구를 보는 눈, 인공위성</span>
+      <span>형식 — 팀 사례조사 발표 (10점)</span>
+      <span>제안 — 주제 선정 검토용</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ===================== 1. 제안 ===================== -->
+  <section>
+    <div class="sec-no reveal">PROPOSAL / 제안 요지</div>
+    <h2 class="reveal">왜 '펭귄'을 발표 주제로?</h2>
+    <p class="sec-intro reveal">
+      한 문장으로: 이 주제는 평가표가 요구하는 모든 항목을 자연스럽게 채울 수 있다.
+    </p>
+
+    <div class="pitch reveal">
+      <p>
+        남극 황제펭귄은 너무 멀고 추운 곳에 살아 사람이 직접 셀 수 없다. 그래서
+        과학자들은 <strong>위성으로 펭귄의 똥 자국을 찾아</strong> 개체수를 추정해
+        왔다. 이 작은 아이디어 하나가 40년에 걸쳐 정교한 과학으로 발전했다.
+      </p>
+      <p>
+        우리가 발표할 이야기는 단순한 '신기한 사례'가 아니다. <strong>중해상도
+        위성 → 초고해상도 위성 → 인공지능</strong>으로 이어지는 방법론의 진화이며,
+        각 단계마다 분명한 장점과 한계가 있어 <strong>분석거리가 풍부하다.</strong>
+        평가표의 핵심인 '장점·한계·시사점 분석'을 가장 깊이 있게 다룰 수 있다.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="ic">REASON 01</div>
+        <h3>강의 주제와 정확히 일치</h3>
+        <p>'지구를 보는 눈'이라는 강의 정체성을 그대로 보여주는 사례다. 위성이
+        없으면 불가능한 연구이기 때문에 원격탐사의 가치가 선명하게 드러난다.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic">REASON 02</div>
+        <h3>흥미로운 도입부</h3>
+        <p>"펭귄은 안 보이는데 펭귄 똥은 보인다"는 반전이 청중의 시선을 단번에
+        끈다. 사례 선정 점수(2점)를 확보하기 좋은 후크다.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic">REASON 03</div>
+        <h3>장점·한계 분석이 풍부</h3>
+        <p>해상도의 한계, 사람 손이 많이 가는 문제, 남극 겨울의 어둠 등 한계가
+        구체적이라 분석 점수(2점)를 깊이 있게 채울 수 있다.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic">REASON 04</div>
+        <h3>AI로 이어지는 최신성</h3>
+        <p>최근 딥러닝이 이 분야를 어떻게 바꾸는지 보여주면, 발표가 '옛날 사례'가
+        아니라 '지금 진행 중인 과학'으로 살아난다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. 발전사 타임라인 ===================== -->
+  <section>
+    <div class="sec-no reveal">TIMELINE / 발표의 큰 줄기</div>
+    <h2 class="reveal">펭귄 원격탐사 40년의 다섯 단계</h2>
+    <p class="sec-intro reveal">
+      발표의 뼈대는 이 타임라인이다. '어디 있나 → 몇 마리인가 → 어떻게 변하나'로
+      질문이 깊어지는 흐름을 따라간다.
+    </p>
+
+    <div class="tl">
+      <div class="tl-item guano reveal">
+        <div class="tl-yr">1984 — 1단계</div>
+        <h3>아이디어의 탄생</h3>
+        <p>NASA의 Schwaller가 펭귄 똥(구아노)의 분광 신호를 발견. 펭귄 똥은
+        특정 파장에서 눈·바위와 다르게 반사된다 — "펭귄은 못 봐도 똥은 보인다."</p>
+        <span class="tl-tag">SPECTRAL SIGNATURE</span>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-yr">2009 ~ 2013 — 2단계</div>
+        <h3>대륙 규모 군집 탐색</h3>
+        <p>중해상도 Landsat 위성으로 남극 전 해안선을 훑어 군집의 '위치'를
+        지도화. 질문은 "펭귄이 어디 있나?"</p>
+        <span class="tl-tag">LANDSAT · 30m</span>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-yr">2012 ~ 2014 — 3단계</div>
+        <h3>개체수 추정 — 핵심 사례</h3>
+        <p>초고해상도(VHR) 위성 + 감독분류로 군집별 '마릿수'를 추정. 황제펭귄
+        약 59만 마리 — 기존 추정의 거의 2배. 이 단계를 가장 자세히 다룬다.</p>
+        <span class="tl-tag">VHR · 30~60cm</span>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-yr">2019 ~ 2023 — 4단계</div>
+        <h3>인공지능에 의한 자동화</h3>
+        <p>사람이 한 장씩 분류하던 작업을 딥러닝 신경망이 대체. 발표의
+        '최신 방법론' 파트로, 가장 공들여 설명할 부분.</p>
+        <span class="tl-tag">DEEP LEARNING</span>
+      </div>
+      <div class="tl-item guano reveal">
+        <div class="tl-yr">2024 ~ 현재 — 5단계</div>
+        <h3>시계열·다중센서 통합</h3>
+        <p>단일 카운트를 넘어 10년치 추세를 추적. 구름을 뚫는 SAR 위성까지
+        동원. 질문은 "개체군이 어떻게 변하는가?"</p>
+        <span class="tl-tag">TIME SERIES · SAR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. 방법론 ===================== -->
+  <section>
+    <div class="sec-no reveal">METHOD / 핵심 방법론</div>
+    <h2 class="reveal">3단계 — 위성으로 펭귄 수를 세는 5개 절차</h2>
+    <p class="sec-intro reveal">
+      평가표가 강조하듯, 장점과 한계를 말하려면 방법론을 먼저 이해해야 한다.
+      펭귄을 한 마리씩 못 세니, <strong>'펭귄 무리가 차지하는 넓이'를 재서
+      마릿수로 환산</strong>하는 것이 핵심 발상이다.
+    </p>
+
+    <div class="method">
+      <div class="method-row reveal">
+        <div class="method-num">1</div>
+        <div class="method-body">
+          <h3>군집 위치 찾기 — 똥 자국 추적</h3>
+          <p>싸고 흐릿한 영상으로 갈색 똥 얼룩을 먼저 찾아 후보지를 좁힌다.</p>
+          <p class="analogy">비유 — 흰 종이 위의 작은 잉크 방울 찾기</p>
+        </div>
+      </div>
+      <div class="method-row reveal">
+        <div class="method-num">2</div>
+        <div class="method-body">
+          <h3>팬샤프닝 — 선명함과 색을 합치기</h3>
+          <p>선명한 흑백 영상과 색이 있는 흐릿한 영상을 합쳐, 선명하면서
+          색도 있는 영상 한 장을 만든다.</p>
+          <p class="analogy">비유 — 정교한 흑백 스케치에 색만 입히기</p>
+        </div>
+      </div>
+      <div class="method-row reveal">
+        <div class="method-num">3</div>
+        <div class="method-body">
+          <h3>감독분류 — 픽셀을 종류별로 나누기</h3>
+          <p>사람이 '펭귄·눈·그림자·똥'의 견본을 짚어주면, 컴퓨터가 나머지
+          픽셀을 가장 비슷한 것으로 분류한다.</p>
+          <p class="analogy">비유 — 사과·바나나 사진을 가르친 뒤 새 과일 맞히기</p>
+        </div>
+      </div>
+      <div class="method-row reveal">
+        <div class="method-num">4</div>
+        <div class="method-body">
+          <h3>면적 → 마릿수 환산 — 회귀</h3>
+          <p>사람이 직접 센 11개 군집으로 '넓이↔마릿수' 공식을 만들고,
+          못 가본 군집에 그 공식을 적용한다.</p>
+          <p class="analogy">비유 — 1㎡에 4명 → 100㎡면 400명</p>
+        </div>
+      </div>
+      <div class="method-row reveal">
+        <div class="method-num">5</div>
+        <div class="method-body">
+          <h3>불확실성 추정 — 몬테카를로</h3>
+          <p>공식의 오차까지 반영해 계산을 만 번 반복, "정확히 몇 마리"가
+          아니라 "이 범위 안"이라고 정직하게 말한다.</p>
+          <p class="analogy">비유 — 주사위를 만 번 굴려 분포 확인</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. AI 방법론 ===================== -->
+  <section>
+    <div class="sec-no reveal">AI FOCUS / 발표의 하이라이트</div>
+    <h2 class="reveal">4단계 — 인공지능이 바꾼 펭귄 연구</h2>
+    <p class="sec-intro reveal">
+      이 파트가 발표의 차별점이다. 3단계의 가장 큰 약점이 무엇이었는지를 짚고,
+      AI가 그것을 어떻게 해결했는지를 보여준다.
+    </p>
+
+    <div class="ai-block reveal">
+      <div class="tag">왜 AI가 필요했나 — 문제 정의</div>
+      <h3>병목은 '사람'이었다</h3>
+      <p>
+        3단계의 감독분류는 사람이 영상을 한 장씩 보며 펭귄 픽셀을 직접 짚는
+        방식이었다. 연구자들은 이 작업을 "초음파 사진 해독"에 비유했다 —
+        너무 어렵고 느려서 매년 남극 전체를 조사하기란 불가능했다. 바로 이
+        한계가 인공지능 도입을 불러왔다.
+      </p>
+
+      <div class="ai-list">
+        <div class="row">
+          <div class="name">CNN 분할</div>
+          <div class="desc">신경망이 영상에서 펭귄 군집 영역을 픽셀 단위로
+          자동 구분(시맨틱 분할). 사람의 수동 분류를 대체한다.</div>
+        </div>
+        <div class="row">
+          <div class="name">약지도 학습</div>
+          <div class="desc">정답 데이터(라벨)가 부족한 문제를, '대충 표시한
+          라벨'로도 학습 가능한 기법으로 우회. 정확도가 42%→60%로 향상됐다.</div>
+        </div>
+        <div class="row">
+          <div class="name">YOLO 객체탐지</div>
+          <div class="desc">영상 속 펭귄 개체·둥지를 사각형으로 직접 찾아
+          세는 방식. 드론·위성 영상 모두에 적용된다.</div>
+        </div>
+        <div class="row">
+          <div class="name">베이지안 모델</div>
+          <div class="desc">여러 해의 들쭉날쭉한 관측을 하나의 추세로 통합.
+          "단일 시점"에서 "장기 변화 추적"으로 연구를 끌어올린다.</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:18px;" class="reveal">
+      발표 시 강조점 — AI는 펭귄 연구를 '생태학 + 위성공학'에서
+      <strong>'생태학 + 위성공학 + 컴퓨터비전'</strong>의 협업으로 바꿨다.
+      도구가 아니라 연구의 구조 자체를 바꾼 것이 핵심 메시지다.
+    </p>
+  </section>
+
+  <!-- ===================== 5. 시계열·다중센서 ===================== -->
+  <section>
+    <div class="sec-no reveal">FRONTIER / 가장 최신의 흐름</div>
+    <h2 class="reveal">5단계 — 시계열·다중센서 통합</h2>
+    <p class="sec-intro reveal">
+      4단계로 '자동화'가 풀리자 연구의 질문이 한 번 더 깊어졌다.
+      "지금 몇 마리"에서 <strong>"시간에 따라 어떻게 변하는가"</strong>로.
+      발표를 현재진행형으로 마무리할 수 있는 파트다.
+    </p>
+
+    <div class="ai-block reveal">
+      <div class="tag">무엇이 달라졌나 — 단일 스냅샷에서 추세로</div>
+      <h3>한 장의 사진에서, 10년의 궤적으로</h3>
+      <p>
+        3단계까지의 연구는 본질적으로 '특정 한 해의 사진'이었다. 하지만
+        펭귄 개체수는 해마다 크게 출렁이기 때문에, 한 시점만으로는
+        "정말 줄고 있는가"를 알 수 없다. 5단계는 여러 해의 들쭉날쭉한
+        관측을 모아 <strong>장기 추세선</strong>을 그려낸다.
+      </p>
+
+      <div class="ai-list">
+        <div class="row">
+          <div class="name">베이지안 추세</div>
+          <div class="desc">여러 해의 노이즈 있는 관측을 하나의 통계 모델로
+          통합. 2009~2018년 황제펭귄이 약 9.6% 감소했다는 첫 시계열 결과를
+          냈다.</div>
+        </div>
+        <div class="row">
+          <div class="name">SAR 위성</div>
+          <div class="desc">광학 위성의 약점인 구름·어둠을 우회. 전파로
+          지표를 보는 Sentinel-1 SAR로 한겨울·흐린 날에도 군집을 추적한다.</div>
+        </div>
+        <div class="row">
+          <div class="name">다중센서 융합</div>
+          <div class="desc">Landsat·VHR·SAR 등 서로 다른 위성 자료를 하나의
+          파이프라인으로 결합해 관측의 빈틈을 메운다.</div>
+        </div>
+        <div class="row">
+          <div class="name">과거로의 확장</div>
+          <div class="desc">1980년대 옛 위성 아카이브까지 거슬러 분석해
+          시계열을 더 길게 만드는 최신 시도가 진행 중이다.</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:18px;" class="reveal">
+      발표 시 강조점 — 5단계는 펭귄 연구를 단순한 '개체수 세기'에서
+      <strong>'기후변화 모니터링'</strong>으로 끌어올렸다. 펭귄 개체수의
+      추세선이 곧 남극 해빙 변화의 지표가 된다는 점이 핵심 메시지다.
+    </p>
+  </section>
+
+  <!-- ===================== 6. 장점 / 한계 ===================== -->
+  <section>
+    <div class="sec-no reveal">ANALYSIS / 평가표 핵심 항목</div>
+    <h2 class="reveal">장점과 한계 — 발표의 분석 파트</h2>
+    <p class="sec-intro reveal">
+      평가표에서 가장 배점이 크고 변별력 있는 부분. 양쪽을 균형 있게 다뤄야
+      한다.
+    </p>
+
+    <div class="pc">
+      <div class="pc-col pc-pro reveal">
+        <div class="hd">ADVANTAGES / 장점</div>
+        <ul>
+          <li><b>접근 불가능 지역 조사</b> — 사람이 갈 수 없는 남극 오지의
+          군집까지 빠짐없이 관측한다.</li>
+          <li><b>전수 조사</b> — 표본이 아니라 전 대륙을 한 번에 봐서 추정의
+          편향이 적다.</li>
+          <li><b>비용 효율</b> — 항공조사·현장조사보다 훨씬 저렴하고 빠르다.</li>
+          <li><b>동물 방해 없음</b> — 펭귄에게 스트레스를 주지 않는 비접촉
+          관측이다.</li>
+          <li><b>장기 모니터링</b> — 매년 같은 방식으로 반복해 기후변화 추세를
+          추적할 수 있다.</li>
+        </ul>
+      </div>
+      <div class="pc-col pc-con reveal">
+        <div class="hd">LIMITATIONS / 한계</div>
+        <ul>
+          <li><b>해상도의 벽</b> — 중해상도 위성은 작은 군집을 놓치고, 개체를
+          직접 셀 수 없다.</li>
+          <li><b>사람 의존(초기)</b> — 감독분류는 분석자의 주관이 개입돼
+          오차가 생긴다 → AI가 보완.</li>
+          <li><b>극지의 어둠</b> — 남극 겨울엔 햇빛이 없어 광학 위성으로
+          관측이 불가능하다.</li>
+          <li><b>구름·날씨</b> — 광학 영상은 구름에 가려진다 → SAR 위성으로
+          일부 보완.</li>
+          <li><b>간접 추정</b> — '넓이→마릿수' 환산이므로 본질적으로 추정치이며
+          불확실성이 따른다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. 시사점 ===================== -->
+  <section>
+    <div class="sec-no reveal">IMPLICATIONS / 시사점</div>
+    <h2 class="reveal">이 사례가 말해주는 것</h2>
+    <p class="sec-intro reveal">
+      평가표의 '시사점 제시'(2점)를 위한 마무리 메시지 후보 세 가지.
+    </p>
+
+    <div class="imp-grid">
+      <div class="imp-card reveal">
+        <div class="n">01</div>
+        <h3>위성은 기후 감시자</h3>
+        <p>펭귄 개체수 변화는 남극 해빙 감소의 지표다. 위성은 동물을 통해
+        기후위기를 읽어낸다.</p>
+      </div>
+      <div class="imp-card reveal">
+        <div class="n">02</div>
+        <h3>기술과 생태의 융합</h3>
+        <p>위성공학·컴퓨터비전·생태학이 만나야 풀리는 문제. 학문 간 협업의
+        모범 사례다.</p>
+      </div>
+      <div class="imp-card reveal">
+        <div class="n">03</div>
+        <h3>방법론은 진화한다</h3>
+        <p>핵심 아이디어(똥 신호)는 40년간 그대로지만, 해상도·AI·시계열이
+        쌓여 정밀해졌다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. 평가표 매핑 ===================== -->
+  <section>
+    <div class="sec-no reveal">RUBRIC / 평가표 충족 점검</div>
+    <h2 class="reveal">이 구성이 평가 항목을 어떻게 채우나</h2>
+    <p class="sec-intro reveal">
+      교수님 평가표(총 10점)의 각 항목을 발표 구성이 어디서 충족하는지
+      미리 점검했다.
+    </p>
+
+    <table class="rubric">
+      <thead>
+        <tr>
+          <th style="width:130px;">평가 항목</th>
+          <th style="width:60px;">배점</th>
+          <th>우리 발표에서 충족하는 부분</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="reveal">
+          <td class="crit">적절한 사례 선정</td>
+          <td class="pt">2점</td>
+          <td class="cover">"펭귄 똥으로 펭귄 세기"라는 반전 후크. 강의 주제와
+          정확히 일치하는 흥미로운 사례.</td>
+        </tr>
+        <tr class="reveal">
+          <td class="crit">원격탐사 이해</td>
+          <td class="pt">2점</td>
+          <td class="cover">방법론 5단계(섹션 3)에서 팬샤프닝·분광신호 등
+          원격탐사의 특징을 직접 설명.</td>
+        </tr>
+        <tr class="reveal">
+          <td class="crit">해석 및 시사점</td>
+          <td class="pt">2점</td>
+          <td class="cover">장점·한계 분석(섹션 5)과 시사점 3가지(섹션 6)로
+          가장 비중 있게 다룸.</td>
+        </tr>
+        <tr class="reveal">
+          <td class="crit">신뢰할 수 있는 정보</td>
+          <td class="pt">1점</td>
+          <td class="cover">PLOS ONE·Royal Society B 등 동료심사 논문을
+          출처로 명시(섹션 하단 참고문헌).</td>
+        </tr>
+        <tr class="reveal">
+          <td class="crit">전달력</td>
+          <td class="pt">2점</td>
+          <td class="cover">타임라인 스토리텔링 + 비유 활용으로 대본 낭독이
+          아닌 자연스러운 설명 구성.</td>
+        </tr>
+        <tr class="reveal">
+          <td class="crit">효과적 시각자료</td>
+          <td class="pt">1점</td>
+          <td class="cover">위성영상 비교·타임라인 도식·방법론 다이어그램 등
+          시각 자료 활용 계획.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== 9. 발표 구성안 ===================== -->
+  <section>
+    <div class="sec-no reveal">STRUCTURE / 발표 구성 초안</div>
+    <h2 class="reveal">발표 흐름 제안 (약 10분 기준)</h2>
+    <p class="sec-intro reveal">
+      팀 논의의 출발점으로 삼을 초안. 분량은 조정 가능하다.
+    </p>
+
+    <div class="struct">
+      <div class="item reveal">
+        <div>
+          <h3>도입 — 펭귄 똥의 반전 <span class="min">1.5분</span></h3>
+          <p>남극은 못 가는데 어떻게 펭귄을 셀까? 질문으로 시작해 청중을 끈다.</p>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div>
+          <h3>발전사 — 40년 5단계 타임라인 <span class="min">2분</span></h3>
+          <p>1984년 아이디어부터 현재까지, 큰 줄기를 빠르게 훑는다.</p>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div>
+          <h3>방법론 — 위성으로 펭귄 세는 법 <span class="min">2.5분</span></h3>
+          <p>5단계 절차를 비유와 함께. 발표의 이해도를 보여주는 핵심부.</p>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div>
+          <h3>AI 파트 — 딥러닝의 등장 <span class="min">2분</span></h3>
+          <p>사람 손의 한계 → AI 해결. 발표의 최신성·차별점.</p>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div>
+          <h3>최신 흐름 — 시계열·다중센서 <span class="min">1분</span></h3>
+          <p>단일 카운트에서 추세 추적으로. 펭귄이 곧 기후변화의 지표라는 메시지.</p>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div>
+          <h3>분석 — 장점·한계·시사점 <span class="min">1.5분</span></h3>
+          <p>평가 배점이 큰 부분. 양쪽을 균형 있게 정리하고 메시지로 마무리.</p>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div>
+          <h3>마무리 — Q&amp;A <span class="min">0.5분</span></h3>
+          <p>"위성은 동물을 통해 지구를 읽는다"는 한 줄로 끝맺는다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. 참고자료 ===================== -->
+  <section>
+    <div class="sec-no reveal">SOURCES / 신뢰할 수 있는 출처</div>
+    <h2 class="reveal">근거 자료 (동료심사 논문 중심)</h2>
+    <p class="sec-intro reveal">
+      평가표의 '신뢰할 수 있는 정보 활용' 항목을 위해, 블로그가 아닌 동료심사
+      학술지를 1차 출처로 삼는다.
+    </p>
+
+    <ul class="src">
+      <li>Fretwell, P.T. et al. (2012). An Emperor Penguin Population Estimate:
+        The First Global, Synoptic Survey of a Species from Space.
+        <i>PLOS ONE</i> 7(4): e33751. <span class="mono">doi:10.1371/journal.pone.0033751</span></li>
+      <li>Schwaller, M.R. et al. (2013). Continental-scale mapping of Adélie
+        penguin colonies from Landsat imagery. <i>Remote Sensing of Environment</i>
+        139: 353–364.</li>
+      <li>Le, H. et al. (2019). Weakly Labeling the Antarctic: The Penguin
+        Colony Case. <i>CVPR Workshops</i> — 약지도학습 기반 딥러닝 분할.</li>
+      <li>LaRue, M. et al. (2024). Advances in remote sensing of emperor
+        penguins: first multi-year time series. <i>Proc. Royal Society B</i> 291:
+        20232067. <span class="mono">doi:10.1098/rspb.2023.2067</span></li>
+      <li>British Antarctic Survey — "Wildlife from Space" 프로젝트 페이지
+        (배경 자료용).</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- ===================== CLOSING ===================== -->
+<footer class="closing">
+  <p class="big">"이 주제, 같이 해보지 않을래?"</p>
+  <p>
+    흥미로운 도입, 깊이 있는 방법론, 최신 AI, 풍부한 분석거리 —
+    평가표가 원하는 모든 걸 한 주제 안에 담을 수 있다.
+    의견 주면 다음 모임에서 함께 다듬자.
+  </p>
+  <div class="sig">팀 발표 주제 제안 · 지구를 보는 눈, 인공위성</div>
+</footer>
+
+<script>
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(Math.min(i%6,5)*0.06)+'s';
+    obs.observe(el);
+  });
+</script>
+
+</body>
+</html>
